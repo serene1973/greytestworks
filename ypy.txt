@@ -1,0 +1,38 @@
+ Why Python is Better for GenAI Testing
+
+1. Rich AI/ML Ecosystem
+
+Python has TensorFlow, PyTorch, OpenAI API, Hugging Face, etc., making it easy to test AI models.
+
+Java lacks deep AI/ML support compared to Python.
+
+
+
+2. Better NLP & LLM Testing
+
+Libraries like LangChain, transformers, spaCy, NLTK help test LLM outputs effectively.
+
+Python provides direct API access to OpenAI, Gemini, Claude, etc.
+
+
+
+3. Ease of Automation & CI/CD
+
+Pytest + Requests + Selenium can automate UI, API, and GenAI prompt testing efficiently.
+
+Java needs additional dependencies for NLP-based verification.
+
+
+
+4. Text Processing & Comparison
+
+Python’s fuzzy matching (fuzzywuzzy, rapidfuzz) makes AI-generated text validation easier.
+
+Java lacks native NLP-friendly tools.
+
+
+
+5. Fast Prototyping & Scripting
+
+GenAI testing often involves quick iterations and validation. Python allows faster scripting than Java.
+
