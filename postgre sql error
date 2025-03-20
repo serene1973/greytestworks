@@ -1,0 +1,7 @@
+db url is jdbc:postgreaql://cps-dev2-us-east-1.cluster-clmdokwhed3m.us-east-1.rds.amazonaws.com:5432/cps2.0
+
+org.postgresql.util.PSQLException : the connection attempt failed.
+
+at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl
+
+at java.sql.DriverManager.getConnection(DriverManager.java:681
