@@ -1,0 +1,118 @@
+KT Agenda: Core Framework Overview
+
+1. Introduction
+
+Purpose of the core framework
+
+Technologies used (Python, pytest, pytest-bdd, etc.)
+
+Structure (packaged as a .whl file, meant to be extended)
+
+
+
+---
+
+2. Folder Structure (Namespace Packages)
+
+src/main/pages/ – Page classes and common components
+
+src/test/tests/ – User test files
+
+__init__.py usage vs namespace packages
+
+All under single src/ root
+
+
+
+---
+
+3. Setup and Installation
+
+Installing the .whl package
+
+Required dependencies (from setup.py or requirements.txt)
+
+Role of MANIFEST.in
+
+
+
+---
+
+4. Core Components
+
+conftest.py in main folder
+
+Used for shared fixtures like driver
+
+Entry point defined in setup.py
+
+
+Custom fixtures and hooks
+
+@pytest.fixture(scope="session", autouse=True)
+
+pytest_bdd_* hooks like before_scenario, after_step, etc.
+
+
+Usage of yield in fixtures
+
+
+
+---
+
+5. How to Extend
+
+How users can create their own conftest.py and refer to core fixtures
+
+Example test file and BDD scenario
+
+How to override or extend existing hooks or fixtures
+
+
+
+---
+
+6. Execution and Reporting
+
+Running with pytest
+
+Custom reporting hooks (pytest_runtest_makereport)
+
+Directory structure for results or screenshots
+
+
+
+---
+
+7. Best Practices
+
+Use of autouse=True vs explicit fixture usage
+
+Preferred structure for new test modules
+
+Keeping tests isolated and maintainable
+
+
+
+---
+
+8. Common Issues
+
+Namespace/import errors without __init__.py
+
+Misuse of hooks or incorrect scope
+
+Troubleshooting driver-related errors
+
+
+
+---
+
+9. Future Enhancements (if applicable)
+
+CI/CD integration (GitLab Pipelines?)
+
+Tag-based execution
+
+API testing support
+
