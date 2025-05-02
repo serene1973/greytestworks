@@ -1,0 +1,176 @@
+Title Slide
+
+Title: Core Automation Framework - Knowledge Transfer
+
+Presenter: [Your Name]
+
+Date: [Date]
+
+
+
+---
+
+Slide 1: Introduction
+
+Purpose: A reusable core automation framework to accelerate test development
+
+Language & Tools: Python, pytest, pytest-bdd
+
+Packaging: Distributed as a .whl file
+
+
+
+---
+
+Slide 2: Folder Structure
+
+src/
+ ├── main/
+ │   └── pages/       # Core page classes
+ └── test/
+     └── tests/        # User test files
+
+Uses namespace package layout (no __init__.py)
+
+All components reside under src/
+
+
+
+---
+
+Slide 3: Installation & Setup
+
+Install via: pip install core_framework.whl
+
+Includes:
+
+setup.py with entry points
+
+MANIFEST.in to include non-code files
+
+
+
+
+---
+
+Slide 4: Core Components
+
+conftest.py in src/main for reusable fixtures
+
+Common fixture: driver with autouse=True
+
+Example:
+
+
+@pytest.fixture(scope="session", autouse=True)
+def driver():
+    # setup
+    yield driver_instance
+    # teardown
+
+
+---
+
+Slide 5: Hooks and Fixtures
+
+pytest hooks:
+
+pytest_runtest_makereport
+
+pytest_sessionstart, etc.
+
+
+pytest-bdd hooks:
+
+pytest_bdd_before_scenario
+
+
+Custom ordering:
+
+@pytest.hookimpl(tryfirst=True)
+
+@pytest.hookimpl(hookwrapper=True)
+
+
+
+
+---
+
+Slide 6: Extending the Framework
+
+Users create their own tests and conftest.py
+
+Reference core fixtures by importing
+
+Extend/override as needed
+
+
+
+---
+
+Slide 7: Execution & Reporting
+
+Use pytest CLI to run
+
+Reporting handled via hooks
+
+Output can include:
+
+Screenshots
+
+Logs
+
+Custom HTML reports
+
+
+
+
+---
+
+Slide 8: Best Practices
+
+Keep tests isolated
+
+Avoid hardcoding data
+
+Use autouse cautiously
+
+Group reusable steps
+
+
+
+---
+
+Slide 9: Common Issues
+
+Missing __init__.py causing import errors (if not namespace)
+
+Hook not executed due to missing decorator
+
+Fixture scope mismatch
+
+
+
+---
+
+Slide 10: Future Enhancements
+
+CI/CD Integration with GitLab
+
+API testing using signed requests
+
+Multi-browser support
+
+
+
+---
+
+Slide 11: Q&A
+
+Open discussion
+
+
+
+
+Great! I've created a KT slide outline for your core framework. You can now edit or export it as needed. Would you like help turning it into a PowerPoint presentation or expanding on any slide?
+
