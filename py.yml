@@ -1,0 +1,59 @@
+stages:
+  - test
+
+pytest_tests:
+  stage: test
+  image: python:3.10  # Choose the Python version you need
+  tags:
+    - your-runner-tag  # Replace with your GitLab runner tag
+  before_script:
+    - pip install poetry
+    - poetry install  # Install dependencies from pyproject.toml
+    - pip install allure-pytest  # Make sure Allure plugin is available
+  script:
+    - poetry run pytest -s --alluredir=alluredir
+  artifacts:
+    when: always
+    paths:
+      - alluredir
+    expire_in: 1 week
+
+
+stages:
+  - test
+  - deploy
+
+pytest_tests:
+  stage: test
+  image: python:3.10
+  tags:
+    - your-runner-tag
+  before_script:
+    - pip install poetry
+    - poetry install
+    - pip install allure-pytest
+  script:
+    - poetry run pytest -s --alluredir=alluredir
+  artifacts:
+    when: always
+    paths:
+      - alluredir
+    expire_in: 1 week
+
+pages:
+  stage: deploy
+  image: openjdk:11  # Required to run Allure CLI
+  tags:
+    - your-runner-tag
+  before_script:
+    - apt-get update && apt-get install -y wget unzip
+    - wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.zip
+    - unzip allure-2.27.0.zip -d /opt
+    - ln -s /opt/allure-2.27.0/bin/allure /usr/bin/allure
+  script:
+    - allure generate alluredir -o public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main  # or change to your branch name
