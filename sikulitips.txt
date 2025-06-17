@@ -1,0 +1,155 @@
+a---
+
+🎯 Root Causes of Inconsistency
+
+1. Image Not Found (Match Fails)
+
+Screen content changes slightly (font smoothing, anti-aliasing, resolution scaling)
+
+Window is not in focus or partially off-screen
+
+UI hasn’t fully loaded yet
+
+
+2. Click Too Early
+
+Sikuli clicks before the element is visible/enabled
+
+System is slow or UI is lagging
+
+
+3. Low Match Similarity
+
+Default similarity is 0.7 (70%), which can match wrong elements or none
+
+
+4. Typing into Wrong Field
+
+Sikuli types before field is in focus
+
+
+
+---
+
+✅ Best Practices to Improve Consistency
+
+🔹 1. Use wait() Before click() or type()
+
+Instead of:
+
+click("submit.png");
+
+Do this:
+
+Screen s = new Screen();
+s.wait("submit.png", 10); // wait up to 10 seconds
+s.click("submit.png");
+
+Why? Ensures the image is present and stable before clicking.
+
+
+---
+
+🔹 2. Increase Similarity Threshold (Optional)
+
+Pattern btn = new Pattern("submit.png").similar(0.85);
+s.wait(btn, 10);
+s.click(btn);
+
+Why? Avoids false positives and improves match confidence.
+
+
+---
+
+🔹 3. Add Small Delays Between Actions
+
+After clicks or types:
+
+s.click("input.png");
+Thread.sleep(500); // give time for field to focus
+s.type("Hello");
+
+Why? Prevents rushing into UI before it's ready.
+
+
+---
+
+🔹 4. Use type() with Location
+
+Avoid:
+
+s.type("Hello");
+
+Do:
+
+s.click("input.png");
+s.type("input.png", "Hello");
+
+Why? Ensures typing goes into the intended field.
+
+
+---
+
+🔹 5. Bring App to Front Before Actions
+
+App.focus("YourAppTitle");
+Thread.sleep(1000); // give time for focus
+
+Why? Prevents hidden/blurred windows from interfering with screen capture or typing.
+
+
+---
+
+🔹 6. Avoid Background Noise on Screen
+
+Make sure:
+
+No overlapping windows
+
+No blinking cursor or animations near target images
+
+Use tight-cropped and stable images (no shadow, glow, etc.)
+
+
+
+---
+
+🔹 7. Run at Native Resolution / 100% Scaling
+
+If your system uses display scaling (e.g., 125%, 150%), Sikuli may mismatch images.
+
+Set your screen scaling to 100% (native) to get consistent image detection.
+
+
+---
+
+🔹 8. Retry Logic (Custom Wrapper)
+
+Wrap click in retry logic:
+
+boolean clicked = false;
+for (int i = 0; i < 3; i++) {
+    if (s.exists("submit.png", 2) != null) {
+        s.click("submit.png");
+        clicked = true;
+        break;
+    }
+    Thread.sleep(500);
+}
+if (!clicked) {
+    throw new RuntimeException("Failed to click submit");
+}
+
+
+---
+
+⚙️ Bonus: Use highlight() While Debugging
+
+Match m = s.wait("submit.png", 10);
+m.highlight(1); // flashes the region for 1 second
+s.click(m);
+
+Why? Helps you visually verify where Sikuli is matching and clicking.
+
+
+---
