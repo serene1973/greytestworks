@@ -1,0 +1,52 @@
+Hi <Manager Name>,
+
+I wanted to highlight an ongoing blocker related to the automation tasks assigned to me.
+
+Currently, the Zephyr test cases do not contain clear and complete steps, expected results, validations, or data details. Most of these test cases involve extensive PDF validations, where multiple fields and acceptance criteria must be clearly understood to automate accurately. Without structured steps, it becomes extremely difficult to automate without assumptions.
+
+I reached out to the POC for clarification, however I am being repeatedly directed to a 1-hour KT video. Unfortunately:
+• The audio quality in the video is poor and not fully understandable
+• A single KT video cannot substitute detailed test documentation for ~40 test cases
+• Each clarification cannot practically be derived by repeatedly scanning the same 1-hour recording
+• Even if audible, a video cannot replace formal test expectations for automation purpose
+
+Automation requires clarity, otherwise it will result in incorrect implementation and rework later, which will impact quality and timelines.
+
+To proceed efficiently and meet delivery expectations, I request support in either of the below:
+1️⃣ Updating Zephyr with clear steps, validations, and expected outcomes
+OR
+2️⃣ Arranging a structured walkthrough / clarification session with proper acceptance criteria
+
+Until then, these test cases remain blocked for automation as proceeding without clarity would be risky and inaccurate.
+
+Requesting your help to resolve this so I can continue productively.
+
+Thanks & Regards,
+<Your Name>
+
+-----
+Hi <Manager Name>,
+
+I would like to formally escalate a blocker impacting the automation delivery.
+
+The Zephyr test cases assigned to me do not contain detailed steps, validations, expected outcomes, or data requirements. I have repeatedly reached out to the POC for clarification, but I am continuously being redirected to the same 1-hour KT video. Due to poor audio quality and lack of structured instructions, the video is not sufficient to extract reliable automation steps, especially for ~40 complex scenarios involving detailed PDF validations.
+
+Without documented requirements or timely clarifications, it is not feasible to:
+• Understand exact flows
+• Identify validation rules
+• Ensure correct automation coverage
+• Avoid rework and delivery risk
+
+This situation is impacting productivity and timeline expectations, and it is not practical to rely solely on an unusable video for every clarification.
+
+Therefore, I request management support to:
+• Ensure Zephyr test cases are properly documented with clear steps and acceptance criteria
+OR
+• Provide an SME-led walkthrough with structured explanations
+
+Until proper clarity is provided, these automation tasks remain blocked since proceeding based on assumptions would compromise quality.
+
+Kindly help address this on priority so I can proceed effectively.
+
+Regards,
+<Your Name>
