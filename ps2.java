@@ -25,3 +25,44 @@ public class PdfSignatureCheck {
             }
 
             System.out.println("Total Signatures = " + signatures.size());
+
+            for (PDSignature sig : signatures) {
+
+                System.out.println("================================");
+                System.out.println("Name      : " + sig.getName());
+                System.out.println("Reason    : " + sig.getReason());
+                System.out.println("Location  : " + sig.getLocation());
+
+                Calendar cal = sig.getSignDate();
+                if (cal != null)
+                    System.out.println("Signed On : " + cal.getTime());
+                else
+                    System.out.println("Signed On : NULL");
+
+                boolean valid = verifySignature(doc, sig);
+                System.out.println("Signature Valid : " + valid);
+            }
+        }
+    }
+
+    private static boolean verifySignature(PDDocument document, PDSignature signature) {
+        try {
+            byte[] signedContent = signature.getSignedContent(document);
+            byte[] signatureBytes = signature.getContents(document);
+
+            Signature sig = Signature.getInstance(signature.getSubFilter());
+            sig.initVerify(getCert(signature));
+            sig.update(signedContent);
+
+            return sig.verify(signatureBytes);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private static X509Certificate getCert(PDSignature sig) throws Exception {
+        byte[] certBytes = sig.getCOSObject().getCOSArray(COSName.CONTENTS).getBytes();
+        CertificateFactory factory = CertificateFactory.getInstance("X.509");
+        return (X509Certificate) factory.generateCertificate(new java.io.ByteArrayInputStream(certBytes));
+    }
+}
