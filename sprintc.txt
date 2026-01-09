@@ -1,0 +1,26 @@
+Sprint Retrospective – Suggested Comments
+1️⃣ On KT & Requirements
+KT sessions are happening very close to sprint start/end, which limits time for understanding application flows before automation begins. Earlier KT and basic walkthroughs would help improve sprint predictability.
+2️⃣ On Test Case Quality
+Several test cases require clarification or refinement during automation due to unclear or high-level steps. More detailed and reviewed test cases would reduce rework and delays.
+3️⃣ On New Applications
+Since applications are new to the team, initial sprints involve significant learning and framework adaptation. Factoring a learning curve into planning would improve estimation accuracy.
+4️⃣ On Velocity / Spillover
+We are seeing test cases spilling over across sprints due to dependency on KT, environment readiness, and clarifications. Revisiting sprint scope or reducing parallel application onboarding may help.
+5️⃣ On CI/CD Effort
+CI/CD setup and stabilization efforts are currently overlapping with automation delivery. Estimating CI/CD work as separate tasks may help balance sprint commitments.
+6️⃣ On Sprint Planning
+Sprint commitments are currently made before full clarity on application behavior and test case readiness. Planning after KT and grooming could improve delivery confidence.
+7️⃣ On Focus & Context Switching
+Working on multiple new applications in parallel increases context switching and impacts productivity. Focusing on fewer applications per sprint may improve throughput.
+8️⃣ On Overall Process (Strong but Safe)
+Current timelines appear aggressive given new applications, unclear test steps, and CI/CD expectations. A re-baselining of scope versus capacity could help achieve sustainable delivery.
+🔹 If they ask “What can we improve next sprint?”
+Use one of these:
+Advance KT sessions and test case grooming before sprint planning.
+OR
+Limit the number of new applications onboarded per sprint.
+OR
+Separate CI/CD stabilization work from automation story commitments.
+
+Mid-sprint scope additions (e.g., new test cases added after work already started) impacted focus and delivery. Clear prioritization and scope freeze during the sprint would help.
